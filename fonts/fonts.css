@@ -16,3 +16,17 @@
   font-weight: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: "Inter-Variable";
+  src: local("Inter-Variable"), url(./Inter-Variable.woff2) format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter-Variable";
+  src: local("Inter-Variable"), url(./Inter-Variable.woff2) format("woff2");
+  font-weight: 785;
+  font-display: swap;
+}

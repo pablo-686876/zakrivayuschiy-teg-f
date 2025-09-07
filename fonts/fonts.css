@@ -1,4 +1,3 @@
-/* В этом файле вы импортируете все шрифты для сайта. Один из них вариативный и требует особенной настройки */
 @font-face {
   font-family: "Inter-Variable";
   src: local("Inter-Variable"),
@@ -10,7 +9,7 @@
 }
 
 @font-face {
-  font-family: "PressStart2P-Regular";
+  font-family: "PressStart2P";
   src: local("PressStart2P-Regular"),
     url(./PressStart2P-Regular.woff) format(woff);
   font-weight: normal;

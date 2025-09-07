@@ -1,15 +1,3 @@
-/* Здесь вы напишете основную часть стилей страницы.
-
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-*/
-
 .page {
   min-inline-size: 360px;
   min-block-size: 100dvb;
@@ -40,7 +28,7 @@
 }
 
 .header_logo {
-  font-family: var(--accent-font, "PressStart2P-Regular"), sans-serif;
+  font-family: var(--accent-font, "PressStart2P"), fantasy;
   text-transform: uppercase;
   padding: clamp(7.625rem, 7.4489rem + 0.7512vw, 8.125rem) 0;
   display: flex;
@@ -125,21 +113,22 @@
   padding: 0;
   display: flex;
   cursor: pointer;
+  block-size: 35px;
 }
 
 .button__text {
   font-size: 14px;
-  font-family: var(--accent-font, "PressStart2P-Regular"), sans-serif;
+  font-family: var(--accent-font, "PressStart2P"), fantasy;
   align-self: center;
 }
 
-#open-dialog.card__icon-button .button__text {
+.save-button .button__text {
   border: none;
   padding: 0;
   padding-left: 8px;
 }
 
-#open-dialog.card__icon-button {
+.save-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -163,7 +152,7 @@
 }
 
 .card-image-label {
-  font-family: var(--accent-font, "PressStart2P-Regular"), sans-serif;
+  font-family: var(--accent-font, "PressStart2P"), fantasy;
   font-size: 14px;
   text-transform: uppercase;
   position: absolute;
@@ -195,7 +184,7 @@
   inset: 0;
   inline-size: clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem);
   padding: 30px 40px;
-  font-family: var(--accent-font, "PressStart2P-Regular"), sans-serif;
+  font-family: var(--accent-font, "PressStart2P"), fantasy;
   text-transform: uppercase;
   font-size: 14px;
   grid-template-columns: repeat(2, fit-content);
@@ -216,7 +205,7 @@
 dialog .floppy-icon {
   width: 39px;
   height: auto;
-  align-content: center;
+  align-self: center;
 }
 
 .dialog-text {
@@ -235,7 +224,7 @@ dialog .floppy-icon {
 
 .close-button-text,
 .button__text,
-#open-dialog.card__icon-button .floppy-icon {
+.save-button .floppy-icon {
   position: relative;
   z-index: 1;
   mix-blend-mode: difference;
@@ -272,47 +261,26 @@ dialog .floppy-icon {
 
 /* hover, focus, animation*/
 
-.card__like-button,
-#open-dialog.card__icon-button,
-.close-button {
-  position: relative;
-  transition: box-shadow 0.3s ease;
-}
-
-.card__like-button:focus,
-#open-dialog.card__icon-button:focus,
-.close-button:focus,
-.card__icon-button:focus {
-  outline: none;
-}
-
-.card__icon-button:focus-visible {
+.card-button .card__icon-button:focus-visible {
   outline: 2px solid var(--accent-color, #000);
 }
 
 .card__icon-button {
   outline: 2px solid transparent;
   transition: outline 0.3s ease;
-  block-size: 35px;
   align-self: center;
 }
 
-.card__like-button:focus-visible,
-#open-dialog.card__icon-button:focus-visible,
-.close-button:focus-visible {
+.button-shadow {
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+
+.button-shadow:focus-visible {
   box-shadow: 2px 2px 0 var(--accent-color, #000);
 }
 
-.card__like-button:hover,
-#open-dialog.card__icon-button:hover,
-.close-button:hover,
-.card__icon-button:hover {
-  cursor: pointer;
-}
-
-.card__like-button::before,
-#open-dialog.card__icon-button::before,
-.close-button::before {
+.button-shadow::before {
   content: "";
   position: absolute;
   background-color: var(--accent-color, #000);
@@ -326,16 +294,8 @@ dialog .floppy-icon {
   transition: transform 0.5s ease-in-out;
 }
 
-.card__like-button:hover::before,
-#open-dialog.card__icon-button:hover::before,
-.close-button:hover::before {
+.button-shadow:hover::before {
   transform: scaleX(1);
-}
-
-.button__text,
-#open-dialog.card__icon-button,
-.close-button {
-  transition: box-shadow 0.3s ease;
 }
 
 /* like-icon */
@@ -408,7 +368,7 @@ dialog .floppy-icon {
 /* медиа-запросы */
 
 @media (width < 376px) {
-  #open-dialog.card__icon-button {
+  .save-button {
     flex-direction: column;
     align-items: center;
     max-inline-size: 306px;
@@ -418,7 +378,7 @@ dialog .floppy-icon {
     width: 28px;
     height: auto;
   }
-  #open-dialog.card__icon-button .button__text {
+  .save-button .button__text {
     padding: 8px 0 0 0;
   }
 }
